@@ -1,0 +1,44 @@
+[project]
+name = "oh-my-logo-py"
+version = "0.1.0"
+description = "A Python port of oh-my-logo, for displaying logos in the terminal. Developed by gemini-cli."
+authors = [
+    { name = "koki.endo", email = "koki.endo.84@firstloop-tech.com" },
+]
+dependencies = [
+    "pyfiglet",
+    "python-cfonts"
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+oh-my-logo-py = "oh_my_logo_py.main:main"
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pyright",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/oh_my_logo_py"]
+
+[tool.ruff]
+line-length = 200
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I"]
+
+[tool.pyright]
+reportUnknownVariableType = "error"
+reportUnknownMemberType = "error"
+reportUnknownArgumentType = "error"
+reportMissingTypeStubs = false
